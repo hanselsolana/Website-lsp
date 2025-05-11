@@ -11,7 +11,7 @@ Fitur Website Perpustakaan:
 
 ## CDM
 
-![WhatsApp Image 2025-05-11 at 23 44 54_18a106de](https://github.com/user-attachments/assets/df8edf93-a89d-4c23-b40e-3c47a50f66e8)
+![WhatsApp Image 2025-05-11 at 23 48 50_7398b2ea](https://github.com/user-attachments/assets/44b7b0ca-692a-4b19-8822-b66f9cb200be)
 
 
 ## PDM
