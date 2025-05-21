@@ -12,6 +12,7 @@
         <thead class="table-dark">
             <tr>
                 <th>No</th>
+                <th>Gambar</th>
                 <th>Judul</th>
                 <th>Penulis</th>
                 <th>Penerbit</th>
@@ -24,6 +25,13 @@
             @forelse ($buku as $index => $item)
                 <tr>
                     <td>{{ $index + 1 }}</td>
+                    <td>
+                        @if ($item->gambar)
+                            <img src="{{ asset($item->gambar) }}" alt="{{ $item->judul }}" width="80">
+                        @else
+                            <span class="text-muted">Tidak ada</span>
+                        @endif
+                    </td>
                     <td>{{ $item->judul }}</td>
                     <td>{{ $item->penulis }}</td>
                     <td>{{ $item->penerbit ?? '-' }}</td>
@@ -40,7 +48,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="7" class="text-center">Tidak ada data buku</td>
+                    <td colspan="8" class="text-center">Tidak ada data buku</td>
                 </tr>
             @endforelse
         </tbody>

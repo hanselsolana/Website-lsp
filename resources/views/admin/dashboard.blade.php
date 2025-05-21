@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container py-4">
+    <!-- Tombol Kembali -->
+    <a href="{{ route('admin.dashboard') }}" class="btn btn-secondary mb-3">
+        ← Kembali
+    </a>
+
     <h2 class="mb-4">Dashboard Admin</h2>
 
     @if(session('success'))
@@ -22,5 +27,3 @@
     </div>
 </div>
 @endsection
-
-

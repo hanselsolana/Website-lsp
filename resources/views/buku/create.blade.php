@@ -5,7 +5,7 @@
 @section('content')
     <h2 class="mb-4">Tambah Buku</h2>
 
-    <form action="{{ route('buku.store') }}" method="POST">
+    <form action="{{ route('buku.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label class="form-label">Judul</label>
@@ -26,6 +26,10 @@
         <div class="mb-3">
             <label class="form-label">Sinopsis</label>
             <textarea name="sinopsis" class="form-control"></textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Gambar Buku</label>
+            <input type="file" name="gambar" class="form-control">
         </div>
         <button type="submit" class="btn btn-success">Simpan</button>
         <a href="{{ route('buku.index') }}" class="btn btn-secondary">Batal</a>

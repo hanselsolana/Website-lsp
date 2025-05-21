@@ -13,7 +13,8 @@
                 {{ session('error') }}
             </div>
         @endif
-        <form method="POST" action="{{ route('admin.authenticate') }}">
+        <form method="POST" action="{{ route('admin.login.post') }}">
+
             @csrf
             <div class="mb-3">
                 <label for="user_id" class="form-label">User ID</label>

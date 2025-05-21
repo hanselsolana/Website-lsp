@@ -8,15 +8,15 @@ use Illuminate\Http\Request;
 use App\Models\PeminjamBuku;
 use App\Http\Controllers\AdminController;
 
-
-// Route untuk halaman utama
+// Halaman utama (pilihan Admin atau Mahasiswa)
 Route::get('/', function () {
-    return view('home'); // Halaman utama dengan pilihan Admin atau Mahasiswa
-});
+    return view('home'); // Halaman utama: pilih Admin atau Mahasiswa
+})->name('home');
 
 // Route untuk login admin
 Route::get('/admin/login', [AuthController::class, 'showLogin'])->name('admin.login');
-Route::post('/admin/login', [AuthController::class, 'login'])->name('admin.login.post');
+Route::post('/admin/login', [AuthController::class, 'authenticate'])->name('admin.login.post');
+
 
 // Route untuk halaman Daftar Buku (admin)
 Route::get('/admin/dashboard', [BukuController::class, 'index'])->middleware('admin')->name('admin.dashboard');
@@ -185,7 +185,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
 });
 
 // Halaman utama (akses mahasiswa tanpa login)
-Route::get('/', [PeminjamController::class, 'form'])->name('mahasiswa.form');
 Route::post('/pinjam', [PeminjamController::class, 'submit'])->name('mahasiswa.submit');
 Route::get('/pengembalian', [PeminjamController::class, 'formPengembalian'])->name('mahasiswa.pengembalian.form');
 Route::post('/pengembalian', [PeminjamController::class, 'submitPengembalian'])->name('mahasiswa.pengembalian.submit');
@@ -210,4 +209,8 @@ Route::middleware(['auth'])->group(function () {
     // Daftar peminjam dan validasi
     Route::get('/admin/daftar-peminjam', [PeminjamController::class, 'daftarPeminjam'])->name('admin.daftar.peminjam');
     Route::post('/admin/validasi-pengembalian', [PeminjamController::class, 'validasiPengembalian'])->name('admin.validasi.pengembalian');
+
+// Route untuk menghapus gambar
+Route::get('/buku/{id}/hapus-gambar', [BukuController::class, 'hapusGambar'])->name('buku.hapusGambar');
+
 });

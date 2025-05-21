@@ -2,6 +2,11 @@
     $b = isset($buku) ? $buku : null;
 @endphp
 
+<!-- Tombol Kembali -->
+<a href="{{ url()->previous() }}" class="btn btn-secondary mb-3">
+    ← Kembali
+</a>
+
 <div class="mb-3">
     <label>Judul</label>
     <input type="text" name="judul" value="{{ old('judul', $b->judul ?? '') }}" class="form-control" required>

@@ -12,8 +12,8 @@ class PeminjamController extends Controller
     // Tampilkan form peminjaman untuk mahasiswa
     public function form()
     {
-        $buku = Buku::where('status_peminjaman', 'tersedia')->get();
-        return view('mahasiswa.form', compact('buku'));
+        $bukuTersedia = Buku::where('status', 'tersedia')->get();
+        return view('mahasiswa.form', compact('bukuTersedia'));
     }
 
     // Proses submit peminjaman
@@ -67,7 +67,7 @@ class PeminjamController extends Controller
         $peminjaman->dikembalikan_pada = now();
         $peminjaman->save();
 
-        return redirect()->back()->with('success', 'Permintaan pengembalian berhasil dikirim. Menunggu validasi admin.');
+        return redirect()->back()->with('success', 'Buku Berhasil Dikembalikan.');
     }
 
     // Admin: tampilkan semua peminjaman dan pengembalian
